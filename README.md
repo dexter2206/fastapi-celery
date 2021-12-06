@@ -17,6 +17,8 @@ alternative interface at `http://localhost:8004/redoc`.
 1. Run `docker-compose build`
 2. Run `docker-compose up`
 
+Or combine both commands with `docker-compose --build up`
+
 ## Testing the API
 
 The `call_api.py` script shows basic interaction with API. To run it first install requirements:
