@@ -11,8 +11,8 @@ celery = Celery(
 )
 
 
-@celery.task(name="create_task")
-def create_task(x: float) -> float:
+@celery.task(name="square")
+def square(x: float) -> float:
     """Compute x ** 2 after sleeping for x seconds."""
     time.sleep(x)
     return x ** 2

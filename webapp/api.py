@@ -1,7 +1,7 @@
 from celery.result import AsyncResult
 from fastapi import FastAPI
 from models import TaskCreated, TaskDefinition, TaskResult
-from worker import celery, create_task
+from worker import celery, square
 
 app = FastAPI()
 
@@ -9,7 +9,7 @@ app = FastAPI()
 @app.post("/tasks", response_model=TaskCreated)
 def schedule_task(payload: TaskDefinition) -> TaskCreated:
     """Schedule computing of x ** 2."""
-    task = create_task.delay(payload.x)
+    task = square.delay(payload.x)
     return TaskCreated(task_id=task.id)
 
 
